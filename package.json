@@ -14,6 +14,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "docs": "cp -R build docs",
-    "yolo": "yarn build && yarn docs # then add deploy"
+    "deploy": "git add -A . && git commit -am 'save workspace and push to github' && git push origin master",
+    "yolo": "yarn build && yarn docs && yarn deploy"
   }
 }
