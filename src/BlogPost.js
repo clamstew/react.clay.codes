@@ -1,13 +1,18 @@
 import React, { PureComponent } from 'react';
 import Markdown from 'react-remarkable';
 
-import { requestMarkdownService } from './request-markdown-service';
+import { requestMarkdownService, getBlogConfig } from './request-markdown-service';
 
 export class BlogPost extends PureComponent {
-  state = { rawMarkdown: null };
+  state = { rawMarkdown: null, config: null };
 
   componentWillMount = () => {
-    return requestMarkdownService()
+    getBlogConfig().then((config) => {
+        console.log('config', config);
+        this.setState({config});
+      });
+
+    requestMarkdownService()
       .then((rawMarkdown) => {
         this.setState({rawMarkdown});
       });
