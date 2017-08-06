@@ -13,7 +13,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "docs": "cp -R build docs",
+    "docs": "rm -rf docs && cp -R build docs",
     "deploy": "git add -A . && git commit -am 'save workspace and push to github' && git push origin master",
     "yolo": "yarn build && yarn docs && yarn deploy"
   }
