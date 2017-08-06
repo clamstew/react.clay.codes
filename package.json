@@ -13,6 +13,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "yolo": "yarn build # then add deploy"
+    "docs": "cp -R build docs",
+    "yolo": "yarn build && yarn docs # then add deploy"
   }
 }
