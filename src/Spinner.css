@@ -1,0 +1,14 @@
+.SpinnerWrap {
+  padding-top: 100px;
+  text-align: center;
+}
+
+.Spinner {
+  animation: spinnerspin infinite 1s linear;
+  height: 80px;
+}
+
+@keyframes spinnerspin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

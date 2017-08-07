@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "highlight.js": "^9.12.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-remarkable": "^1.1.1",
+    "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.10",
     "remarkable": "^1.7.1"
   },
@@ -17,5 +19,6 @@
     "docs": "rm -rf docs && cp -R build docs",
     "deploy": "git add -A . && git commit -am 'save workspace and push to github' && git push origin master",
     "yolo": "yarn build && yarn docs && yarn deploy"
-  }
+  },
+  "gacode": "UA-000000-1"
 }

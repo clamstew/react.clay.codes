@@ -1,7 +1,16 @@
 import React, { PureComponent } from 'react';
-import Markdown from 'react-remarkable';
+// import Markdown from 'react-remarkable';
 
-import { requestMarkdownService, getBlogConfig } from './request-markdown-service';
+import { Remarkable } from './ReactRemarkable';
+
+import {
+  requestMarkdownService,
+  getBlogConfig,
+  remarkableOptions
+} from './request-markdown-service';
+
+// import spinner from './rotating-squares.svg';
+import { Spinner } from './Spinner';
 
 export class BlogPost extends PureComponent {
   state = { rawMarkdown: null, config: null };
@@ -14,7 +23,7 @@ export class BlogPost extends PureComponent {
 
     requestMarkdownService()
       .then((rawMarkdown) => {
-        this.setState({rawMarkdown});
+        setTimeout(() => this.setState({rawMarkdown}), 1000);
       });
   };
 
@@ -22,7 +31,9 @@ export class BlogPost extends PureComponent {
     return (
       <div>
         {this.state.rawMarkdown ?
-          <Markdown source={this.state.rawMarkdown} /> : <div>loading ...</div> }
+          <Remarkable source={this.state.rawMarkdown}
+                      container={'div'}
+                      options={remarkableOptions()} /> : <Spinner /> }
       </div>
     );
   };

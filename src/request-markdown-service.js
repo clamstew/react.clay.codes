@@ -1,4 +1,25 @@
+// var hljs = require('highlight.js')
+import hljs from 'highlight.js';
 
+export const remarkableOptions = () => ({
+  html: true,
+  breaks: true,
+  linkify: true,
+  typographer: true,
+  highlight: (str, lang)=> {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return hljs.highlight(lang, str).value;
+      } catch (err) {}
+    }
+
+    try {
+      return hljs.highlightAuto(str).value;
+    } catch (err) {}
+
+    return ''; // use external default escaping
+  }
+});
 
 export const getBlogConfig = () => {
   return fetch('/blog-config/config.json').then((response) => response.json());
@@ -8,8 +29,10 @@ export const getBlogConfig = () => {
 
 export const requestMarkdownService = () => {
 
-  const someMDFile = 'https://gist.githubusercontent.com/clamstew/f462169dbbc140f97839c3ecf54ed05e/raw/c9a521c27f55ef3e9fc01b73b165edd934e7e662/mardn.md';
+  // const someMDFile = 'https://gist.githubusercontent.com/clamstew/f462169dbbc140f97839c3ecf54ed05e/raw/3128390e9a75632125b6d33d1122fdb89590ad69/mardn.md';
 
-  return fetch(someMDFile).then((response) => response.text());
+  const sampleMDLocal = '/blog-markdown/sample.md';
+
+  return fetch(sampleMDLocal).then((response) => response.text());
 
 };

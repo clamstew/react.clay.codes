@@ -12,3 +12,9 @@ I'm using react a lot and solving some interesting issues, and I'd like to chron
 * add a new object to `public/blog-config`, incrementing the `id` field, displayed title and description come from here
 * run `yarn yolo` (or `yarn build` then `yarn deploy`)
 * if you just add config, then you can skip step 3, and just run `yarn deploy`
+
+https://codesandbox.io
+
+loader from https://loading.io/spinner/blocks/-rotating-squares-preloader-gif
+
+http://reactblogjs.com/
