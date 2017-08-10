@@ -2,6 +2,13 @@
 
 <!-- code used to convert the markdown is https://github.com/jonschlinkert/remarkable -->
 
+<!--Greymatter
+{
+  "name": "Sample Formatting Page",
+  "description": "See the guide below for examples of using markdown"
+}
+-->
+
 # Remarkable
 
 > Experience real-time editing with Remarkable!
@@ -217,16 +224,3 @@ This is HTML abbreviation example.
 It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
 
 *[HTML]: Hyper Text Markup Language
-
-
-<!--***
-
-__Advertisement :)__
-
-- __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image
-  resize in browser.
-- __[babelfish](https://github.com/nodeca/babelfish/)__ - developer friendly
-  i18n with plurals support and easy syntax.
-
-You'll like those projects! :)
--->

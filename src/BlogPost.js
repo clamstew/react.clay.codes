@@ -6,7 +6,8 @@ import { Remarkable } from './ReactRemarkable';
 import {
   requestMarkdownService,
   getBlogConfig,
-  remarkableOptions
+  remarkableOptions,
+  parseGreyMatter
 } from './request-markdown-service';
 
 // import spinner from './rotating-squares.svg';
@@ -23,7 +24,12 @@ export class BlogPost extends PureComponent {
 
     requestMarkdownService()
       .then((rawMarkdown) => {
-        setTimeout(() => this.setState({rawMarkdown}), 1000);
+        const greyMatter = parseGreyMatter(rawMarkdown);
+        console.log('greyMatter', greyMatter);
+        setTimeout(() => {
+          this.setState({rawMarkdown})
+          this.props.onLoad(); // shows footer and other page elements
+        }, 200);
       });
   };
 
