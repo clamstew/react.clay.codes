@@ -5,7 +5,8 @@
 
 @media (max-width: 700px) {
   .BlogAppWrapper {
-    width: 100%;
+    width: 90%;
+    margin: 0 5%;
   }
 }
 

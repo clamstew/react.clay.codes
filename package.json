@@ -20,5 +20,11 @@
     "deploy": "git add -A . && git commit -am 'save workspace and push to github' && git push origin master",
     "yolo": "yarn build && yarn docs && yarn deploy"
   },
-  "gacode": "UA-000000-1"
+  "gacode": "UA-000000-1",
+  "devDependencies": {
+    "node-dir": "^0.1.17"
+  },
+  "reactBlog": {
+    "markdownFolder": "/public/blog-markdown"
+  }
 }
