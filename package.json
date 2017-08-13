@@ -27,6 +27,7 @@
     "node-dir": "^0.1.17"
   },
   "reactBlog": {
-    "markdownFolder": "/public/blog-markdown"
+    "publicFolder": "/public",
+    "markdownFolderInPublicFolder": "/blog-markdown"
   }
 }

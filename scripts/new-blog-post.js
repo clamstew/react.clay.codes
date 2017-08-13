@@ -13,8 +13,10 @@ const moment = require('moment');
 // const packageFile = require(process.cwd()+'/package.json');
 // const reactBlogConfig = packageFile.reactBlog;
 const reactBlogConfig = require('./common').getReactBlogConfig();
-const markdownFolder = reactBlogConfig.markdownFolder;
-console.log('markdownFolder', markdownFolder);
+const publicFolder = reactBlogConfig.publicFolder;
+const markdownFolder = reactBlogConfig.markdownFolderInPublicFolder;
+const filnalMarkdownFolder = publicFolder + markdownFolder;
+console.log('filnalMarkdownFolder', filnalMarkdownFolder);
 
 const NOW_UNIX = +moment()
 
@@ -28,7 +30,7 @@ const addMdExt = (filename) => `${NOW_UNIX}-${titleToKebapCase(filename)}.md`
 if(argv.title) newFileName = argv.title
 
 // file path and file name
-const folderFile = `${markdownFolder}/${addMdExt(newFileName)}`
+const folderFile = `${filnalMarkdownFolder}/${addMdExt(newFileName)}`
 const finalFile = `${process.cwd()}${folderFile}`
 
 // console.log('argv.title', argv.title)
@@ -41,7 +43,7 @@ const newMarkdownFileTemplate = `<!--Greymatter
   "createDate": "${new Date()}",
   "updateDate": "${new Date()}",
   "slug": "${titleToKebapCase(newFileName)}",
-  "file": "${folderFile}"
+  "file": "${markdownFolder}/${addMdExt(newFileName)}"
 }
 -->
 
