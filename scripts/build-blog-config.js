@@ -10,30 +10,35 @@
 //
 // to run `node --harmony scripts/build-blog-config`
 //
-//
+// or `yarn blogconfig`
 
 const fs = require('fs');
 const dir = require('node-dir');
+const reactBlogConfig = require('./common').getReactBlogConfig();
+
 
 // grab user configs for where put markdown files
-const reactBlogConfig = require('./common').getReactBlogConfig();
-const markdownFolder = reactBlogConfig.markdownFolder;
+const publicFolder = reactBlogConfig.publicFolder; // e.g. '/public'
+const blogConfig = reactBlogConfig.blogConfig; // e.g. '/blog-markdown'
+const finalBlogConfigFolder = publicFolder + blogConfig; // '/public/blog-markdown'
 
-// console.log('packageFile', markdownFolder);
+const markdownFolder = reactBlogConfig.markdownFolderInPublicFolder; // e.g. '/blog-markdown'
+const finalMarkdownFolder = publicFolder + markdownFolder; // '/public/blog-markdown'
 
-const PATH_OF_MARKDOWN_FROM_DOT_FILE = '/public'; // require('.react-blog'); @TODO - grab .react-blog - contains json - grab 'markdown-folder'
+// file path and file name
+const finalFile = `${process.cwd()}${finalBlogConfigFolder}`
 
 
 const postsMardown = []; // collection of post markdown in order
 const postsMardownFiles = []; // collection of post markdown file name in order
 
 
-// @fixme may not use
+// @FIXME - may not use
 const getMarkdownFileContents = (fileName) => fs.readFileSync(fileName);
 
-
-
-
+// @TODO - if any dupblicate slugs
+// iterate them in the config with '-2', '-3', etc.
+// must be unique so router has unique thing to go to
 
 const parseGreyMatter = (rawMd) => {
   const match = rawMd.match(/<!--Greymatter(.|\s)*?-->/);
@@ -48,25 +53,52 @@ const parseGreyMatter = (rawMd) => {
 };
 
 
+const getFinalJsonConfig = () => {
+  return JSON.stringify({
+    posts: postsMardown,
+    pages: []
+  });
+};
+
+
+const writeFinalConfigFile = () => {
+  fs.writeFile(finalFile, getFinalJsonConfig(), (err) => {
+    if(err) return console.log(err)
+    console.log("New markdown blog post file was created: "+ folderFile);
+  })
+}
+
+
 const buildBlogConfig = () => {
-  console.log('adlfjadslfkj', __dirname);
-  dir.readFiles(process.cwd()+markdownFolder,{
+  dir.readFiles(process.cwd()+finalMarkdownFolder,{
         match: /.md$/,
         exclude: /^\./
       },
-      function(err, content, next) {
+      (err, content, next) => {
           if (err) throw err;
-          console.log('content:', content);
+          postsMardown.push(parseGreyMatter(content))
+          // console.log('content:', content);
           next();
       },
-      function(err, files){
+      (err, files) => {
           if (err) throw err;
           console.log('finished reading files:', files.map((f) => f.replace(process.cwd() + markdownFolder, '')));
+          console.log('postsMardown:', postsMardown);
+          writeFinalConfigFile();
       });
 
 };
 
 
-buildBlogConfig();
+buildBlogConfig()
 
-module.exports = buildBlogConfig;
+module.exports = buildBlogConfig
+
+
+
+
+
+
+
+
+

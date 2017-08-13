@@ -12,7 +12,7 @@ const reactBlogConfig = require('./common').getReactBlogConfig();
 // grab user configs for where put markdown files
 const publicFolder = reactBlogConfig.publicFolder; // e.g. '/public'
 const markdownFolder = reactBlogConfig.markdownFolderInPublicFolder; // e.g. '/blog-markdown'
-const filnalMarkdownFolder = publicFolder + markdownFolder; // '/public/blog-markdown'
+const finalMarkdownFolder = publicFolder + markdownFolder; // '/public/blog-markdown'
 
 const NOW_UNIX = +moment()
 
@@ -26,7 +26,7 @@ const addMdExt = (filename) => `${NOW_UNIX}-${titleToKebapCase(filename)}.md`
 if(argv.title) newFileName = argv.title
 
 // file path and file name
-const folderFile = `${filnalMarkdownFolder}/${addMdExt(newFileName)}`
+const folderFile = `${finalMarkdownFolder}/${addMdExt(newFileName)}`
 const finalFile = `${process.cwd()}${folderFile}`
 
 
@@ -50,6 +50,6 @@ Write new post here in markdown ...
 
 // add file to file system
 fs.writeFile(finalFile, newMarkdownFileTemplate, function(err) {
-    if(err) return console.log(err)
-    console.log("New markdown blog post file was created: "+ folderFile);
+  if(err) return console.log(err)
+  console.log("New markdown blog post file was created: "+ folderFile);
 });
