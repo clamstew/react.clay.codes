@@ -21,6 +21,11 @@ http://reactblogjs.com/
 
 ## research
 
+## Similar ideas
+
+* https://www.npmjs.com/package/create-react-app-blog
+* https://github.com/philcockfield/react-middleware
+
 
 ## Dev research
 

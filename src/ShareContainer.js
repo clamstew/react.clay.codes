@@ -7,7 +7,9 @@ export class ShareContainer extends PureComponent {
   render = () => {
     return (
       <div className="ShareWrap">
-        twiiter
+        twiiter, fb, etc.
+
+        {/*floats in top left*/}
       </div>
     );
   };

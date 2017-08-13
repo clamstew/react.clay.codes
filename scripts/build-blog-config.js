@@ -16,8 +16,7 @@ const fs = require('fs');
 const dir = require('node-dir');
 
 // grab user configs for where put markdown files
-const packageFile = require(process.cwd()+'/package.json');
-const reactBlogConfig = packageFile.reactBlog;
+const reactBlogConfig = require('./common').getReactBlogConfig();
 const markdownFolder = reactBlogConfig.markdownFolder;
 
 // console.log('packageFile', markdownFolder);
