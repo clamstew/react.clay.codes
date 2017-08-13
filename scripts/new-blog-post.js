@@ -31,8 +31,8 @@ if(argv.title) newFileName = argv.title
 const folderFile = `${markdownFolder}/${addMdExt(newFileName)}`
 const finalFile = `${process.cwd()}${folderFile}`
 
-console.log('argv.title', argv.title)
-console.log('argv.description', argv.description)
+// console.log('argv.title', argv.title)
+// console.log('argv.description', argv.description)
 
 const newMarkdownFileTemplate = `<!--Greymatter
 {
@@ -54,5 +54,5 @@ Write new post here in markdown ...
 fs.writeFile(finalFile, newMarkdownFileTemplate, function(err) {
     if(err) return console.log(err)
 
-    console.log("New markdown blog post file was created in "+ markdownFolder);
+    console.log("New markdown blog post file was created: "+ folderFile);
 });
