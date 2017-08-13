@@ -1,7 +1,7 @@
 <!--Greymatter
 {
   "name": "React Redux Sagas with Web Animations",
-  "description": "See the guide below for examples of using markdown"
+  "description": "Triggering complex animations through redux sagas, using native web animation api"
 }
 -->
 
