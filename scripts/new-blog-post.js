@@ -7,16 +7,12 @@
 const argv = require('yargs').argv;
 const fs = require('fs');
 const moment = require('moment');
-
-// @FIXME - repeated in blog config - need to centralize
-// grab user configs for where put markdown files
-// const packageFile = require(process.cwd()+'/package.json');
-// const reactBlogConfig = packageFile.reactBlog;
 const reactBlogConfig = require('./common').getReactBlogConfig();
-const publicFolder = reactBlogConfig.publicFolder;
-const markdownFolder = reactBlogConfig.markdownFolderInPublicFolder;
-const filnalMarkdownFolder = publicFolder + markdownFolder;
-console.log('filnalMarkdownFolder', filnalMarkdownFolder);
+
+// grab user configs for where put markdown files
+const publicFolder = reactBlogConfig.publicFolder; // e.g. '/public'
+const markdownFolder = reactBlogConfig.markdownFolderInPublicFolder; // e.g. '/blog-markdown'
+const filnalMarkdownFolder = publicFolder + markdownFolder; // '/public/blog-markdown'
 
 const NOW_UNIX = +moment()
 
@@ -33,9 +29,9 @@ if(argv.title) newFileName = argv.title
 const folderFile = `${filnalMarkdownFolder}/${addMdExt(newFileName)}`
 const finalFile = `${process.cwd()}${folderFile}`
 
-// console.log('argv.title', argv.title)
-// console.log('argv.description', argv.description)
 
+// template for contents of new markdown post
+// note grey matter in json format inserted at the top of the md file
 const newMarkdownFileTemplate = `<!--Greymatter
 {
   "name": "${argv.title || 'Add title here ...'}",
@@ -55,6 +51,5 @@ Write new post here in markdown ...
 // add file to file system
 fs.writeFile(finalFile, newMarkdownFileTemplate, function(err) {
     if(err) return console.log(err)
-
     console.log("New markdown blog post file was created: "+ folderFile);
 });

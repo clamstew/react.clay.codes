@@ -28,6 +28,7 @@
   },
   "reactBlog": {
     "publicFolder": "/public",
-    "markdownFolderInPublicFolder": "/blog-markdown"
+    "markdownFolderInPublicFolder": "/blog-markdown",
+    "postFolder": "/blog-pages"
   }
 }
