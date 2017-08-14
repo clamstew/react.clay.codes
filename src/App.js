@@ -10,11 +10,20 @@ import { Header } from './Header';
 import { BlogPost } from './BlogPost';
 import { Footer } from './Footer';
 
+import { getBlogConfig } from './request-markdown-service';
+
 export class BlogApp extends PureComponent {
-  state = { rawMarkdownLoaded: false };
+  state = { rawMarkdownLoaded: false, config: null };
 
   updateLoadStatus = () => {
     this.setState({rawMarkdownLoaded: true});
+  };
+
+  componentWillMount = () => {
+    getBlogConfig().then((config) => {
+        console.log('config', config);
+        this.setState({config});
+      });
   };
 
   render = () => {

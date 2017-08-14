@@ -8,6 +8,7 @@ import './syntax-highlighting/monokai.css';
 
 import { BlogApp } from './App';
 import { MarkdownFormattingHelp } from './MarkdownFormattingHelp';
+import { BlogIndex } from './BlogIndex';
 
 // @TODO - add back when get secure domain
 // import registerServiceWorker from './registerServiceWorker';
@@ -18,8 +19,9 @@ ReactDOM.render((
     {/*<BlogApp />*/}
 
     <Switch>
-      <Route exact path='/' component={BlogApp}/>
+      <Route exact path='/blog' component={BlogApp}/>
       <Route exact path='/markdown-formatting-help' component={MarkdownFormattingHelp}/>
+      <Route exact path='/' component={BlogIndex}/>
       {/* both /roster and /roster/:number begin with /roster */}
       {/*<Route path='/roster' component={Roster}/>*/}
       {/*<Route path='/schedule' component={Schedule}/>*/}

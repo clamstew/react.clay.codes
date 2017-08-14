@@ -5,7 +5,7 @@ import { Remarkable } from './ReactRemarkable';
 
 import {
   requestMarkdownService,
-  getBlogConfig,
+  // getBlogConfig,
   remarkableOptions,
   parseGreyMatter
 } from './request-markdown-service';
@@ -14,13 +14,13 @@ import {
 import { Spinner } from './Spinner';
 
 export class BlogPost extends PureComponent {
-  state = { rawMarkdown: null, config: null };
+  state = { rawMarkdown: null/*, config: null*/ };
 
   componentWillMount = () => {
-    getBlogConfig().then((config) => {
-        console.log('config', config);
-        this.setState({config});
-      });
+    // getBlogConfig().then((config) => {
+    //     console.log('config', config);
+    //     this.setState({config});
+    //   });
 
     requestMarkdownService()
       .then((rawMarkdown) => {
