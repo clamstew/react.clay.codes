@@ -9,6 +9,26 @@
 }
 -->
 
-Write new post here in markdown ...
+so this just updates.
 
-[maybe add direction about where to look on how to write markdown]
+As I type and save.
+
+
+```javascript
+// cool
+const farEnough = (go) => console.log('something');
+
+farEnough('not')
+const yay = farEnough('definitely')
+
+return yay;
+
+```
+
+* one
+* two
+* three
+
+---
+
+# soemthing

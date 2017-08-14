@@ -9,6 +9,6 @@
 }
 -->
 
-Write new post here in markdown ...
+This is awesome
 
 [maybe add direction about where to look on how to write markdown]

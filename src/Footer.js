@@ -9,7 +9,7 @@ export class Footer extends PureComponent {
   render = () => {
     return (
       <div className="FooterWrap">
-        Footer...  DONT show until after blog has loaded somehow
+        ReactBlog - Made with <span style={{'color': 'red'}} className="heart">♥</span> by <a href="https://github.com/clamstew">@clamstew</a>
       </div>
     );
   };
