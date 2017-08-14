@@ -14,6 +14,8 @@ export class BlogIndexPreview extends PureComponent {
           <div>
             <h1>{ post.name }</h1>
 
+            {post.createDate && <p><em>{post.createDate}</em></p>}
+
             <p>{ post.description }</p>
 
             { post.slug &&

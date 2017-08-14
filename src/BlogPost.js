@@ -15,20 +15,20 @@ export class BlogPost extends PureComponent {
 
   blogslug = () => get(this, 'props.match.params.blogslug')
 
-  componentWillMount = () => {
-    console.log('react router blog slug - in BlogPost.componentWillMount', this.blogslug())
-  };
+  // componentWillMount = () => {
+  //   console.log('react router blog slug - in BlogPost.componentWillMount', this.blogslug())
+  // };
 
   componentWillReceiveProps = (nextProps) => {
     // console.log('nextProps.config', nextProps.config);
     requestMarkdownService({slug: this.blogslug(), config: nextProps.config})
       .then((rawMarkdown) => {
         const greyMatter = parseGreyMatter(rawMarkdown);
-        console.log('greyMatter', greyMatter);
+        // console.log('greyMatter', greyMatter);
         setTimeout(() => {
           this.setState({rawMarkdown, greyMatter})
           this.props.onLoad(); // shows footer and other page elements
-        }, 200);
+        }, 100);
       });
   };
 
@@ -38,6 +38,7 @@ export class BlogPost extends PureComponent {
         {this.state.greyMatter &&
           <div>
             {this.state.greyMatter.name && <h1>{this.state.greyMatter.name}</h1>}
+            {this.state.greyMatter.createDate && <p><em>{this.state.greyMatter.createDate}</em></p>}
           </div>
         }
         {this.state.rawMarkdown ?
