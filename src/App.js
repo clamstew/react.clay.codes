@@ -3,6 +3,7 @@
 // we'll have another file for all posts page
 
 import React, { PureComponent } from 'react';
+import { get } from './util'
 
 import './App.css';
 
@@ -27,11 +28,12 @@ export class BlogApp extends PureComponent {
   };
 
   render = () => {
+    console.log('react router blog slug', get(this, 'props'))
     return (
       <div>
         <Header />
         <div className="BlogAppWrapper">
-          <BlogPost {...this.state} onLoad={() => {this.updateLoadStatus()}} />
+          <BlogPost {...this.state} {...this.props} onLoad={() => {this.updateLoadStatus()}} />
         </div>
         {this.state.rawMarkdownLoaded && <Footer />}
       </div>

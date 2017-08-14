@@ -16,7 +16,11 @@ export class BlogIndexPreview extends PureComponent {
 
             <p>{ post.description }</p>
 
-            { post.slug && <div><Link to={ post.slug }>View Post</Link></div> }
+            { post.slug &&
+              <div>
+                <Link to={{ pathname: 'blog', query: {blogslug: post.slug }}}>View Post</Link>
+              </div>
+            }
           </div>
           : null
         }
