@@ -15,10 +15,8 @@ export class BlogIndex extends PureComponent {
       });
   };
 
-
   posts = () => get(this, 'state.config.posts')
   hasPost = () => this.posts() && this.posts().length && this.posts().length > 0
-
 
   render = () => {
     return (
