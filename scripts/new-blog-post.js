@@ -8,6 +8,7 @@ const argv = require('yargs').argv;
 const fs = require('fs');
 const moment = require('moment');
 const reactBlogConfig = require('./common').getReactBlogConfig();
+const globalMomemntJsFormat = require('./common').globalMomemntJsFormat;
 
 // grab user configs for where put markdown files
 const publicFolder = reactBlogConfig.publicFolder; // e.g. '/public'
@@ -32,12 +33,13 @@ const finalFile = `${process.cwd()}${folderFile}`
 
 // template for contents of new markdown post
 // note grey matter in json format inserted at the top of the md file
+const CREATE_DATE = moment().format(globalMomemntJsFormat);
 const newMarkdownFileTemplate = `<!--Greymatter
 {
   "name": "${argv.title || 'Add title here ...'}",
   "description": "${argv.description || 'Add description here ...'}",
-  "createDate": "${new Date()}",
-  "updateDate": "${new Date()}",
+  "createDate": "${CREATE_DATE}",
+  "updateDate": "${CREATE_DATE}",
   "slug": "${titleToKebapCase(newFileName)}",
   "file": "${markdownFolder}/${addMdExt(newFileName)}"
 }

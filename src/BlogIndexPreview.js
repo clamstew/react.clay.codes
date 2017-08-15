@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom'
 
-import { get } from './util'
+import { get, formatDateTimeForDisplay } from './util'
 
 export class BlogIndexPreview extends PureComponent {
   post = () => get(this, 'props.post')
@@ -14,7 +14,7 @@ export class BlogIndexPreview extends PureComponent {
           <div>
             <h1>{ post.name }</h1>
 
-            {post.createDate && <p><em>{post.createDate}</em></p>}
+            { post.createDate && <p><em>{formatDateTimeForDisplay(post.createDate)}</em></p>}
 
             <p>{ post.description }</p>
 

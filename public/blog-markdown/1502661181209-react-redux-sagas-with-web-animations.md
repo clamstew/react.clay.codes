@@ -2,8 +2,8 @@
 {
   "name": "React Redux Sagas with Web Animations",
   "description": "Triggering complex animations through redux sagas, using native web animation api",
-  "createDate": "Sun Aug 13 2017 16:53:01 GMT-0500 (CDT)",
-  "updateDate": "Sun Aug 13 2017 16:53:01 GMT-0500 (CDT)",
+  "createDate": "Monday, August 14th 2017, 11:22:35 pm",
+  "updateDate": "Monday, August 14th 2017, 11:22:35 pm",
   "slug": "react-redux-sagas-with-web-animations",
   "file": "/blog-markdown/1502661181209-react-redux-sagas-with-web-animations.md"
 }

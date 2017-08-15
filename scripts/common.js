@@ -6,5 +6,6 @@ const getReactBlogConfig = () => {
 
 
 module.exports = {
-  getReactBlogConfig: getReactBlogConfig
+  getReactBlogConfig: getReactBlogConfig,
+  globalMomemntJsFormat: 'dddd, MMMM Do YYYY, h:mm:ss a'
 };

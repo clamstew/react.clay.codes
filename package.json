@@ -19,7 +19,7 @@
     "eject": "react-scripts eject",
     "docs": "rm -rf docs && cp -R build docs",
     "deploy": "git add -A . && git commit -am 'save workspace and push to github' && git push origin master",
-    "yolo": "yarn build && yarn docs && yarn deploy",
+    "yolo": "yarn blogconfig && yarn build && yarn docs && yarn deploy",
     "newpost": "node --harmony scripts/new-blog-post",
     "newpage": "node --harmony scripts/new-blog-page",
     "blogconfig": "node --harmony scripts/build-blog-config"
