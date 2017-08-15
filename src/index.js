@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom'
-// import { browserHistory } from 'react-router';
+import { HashRouter, Route, Redirect } from 'react-router-dom'
 
 import './index.css';
 import './syntax-highlighting/monokai.css';
@@ -15,12 +14,13 @@ import { BlogIndex } from './BlogIndex';
 // import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render((
-  <BrowserRouter>
+  <HashRouter>
     <div>
       <Route path='/blog/:blogslug' component={BlogApp} />
       <Route exact path='/markdown-formatting-help' component={MarkdownFormattingHelp} />
-      <Route exact path='/' component={BlogIndex} />
+      <Route exact path='/blog' component={BlogIndex} />
+      <Redirect from="*" to="blog" />
     </div>
-  </BrowserRouter>
+  </HashRouter>
 ), document.getElementById('blog-root'));
 // registerServiceWorker();
