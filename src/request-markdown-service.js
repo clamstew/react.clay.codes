@@ -1,6 +1,4 @@
-// var hljs = require('highlight.js')
 import hljs from 'highlight.js';
-
 import { get } from './util'
 
 export const remarkableOptions = () => ({
@@ -33,20 +31,10 @@ const _findBlogPostConfigFromSlug = ({slug, config}) => {
   return posts.find((post) => post.slug === slug);
 };
 
-// add react router - to get a slug and map to an object
-
+// http GET markdown file by slug, looking up real md file in blog-config
 export const requestMarkdownService = ({slug=null,config={}}) => {
-
-  // const slug; // get react router value for slug
-  // ()-> look up blog post file by slug using value in config file json
-
-  // const someMDFile = 'https://gist.githubusercontent.com/clamstew/f462169dbbc140f97839c3ecf54ed05e/raw/3128390e9a75632125b6d33d1122fdb89590ad69/mardn.md';
   const postconfig = _findBlogPostConfigFromSlug({slug, config});
-  console.log('postconfig', postconfig.file);
-  // const sampleMDLocal = '/blog-markdown/sample.md';
-
   return fetch(postconfig.file).then((response) => response.text());
-
 };
 
 
