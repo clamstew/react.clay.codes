@@ -27,6 +27,10 @@ http://reactblogjs.com/
 * write blog post in new markdown file.
 * run `yarn yolo`
 
+# caveats
+
+if change file name in `/blog-markdown`, must update `"file"` in grey matter.
+
 ## research
 
 ## Similar ideas
