@@ -64,7 +64,7 @@ const getFinalJsonConfig = () => {
 const writeFinalConfigFile = () => {
   fs.writeFile(finalFile, getFinalJsonConfig(), (err) => {
     if(err) return console.log(err)
-    console.log("New markdown blog post file was created: "+ folderFile);
+    console.log("New markdown blog post file was created: "+ finalBlogConfigFolder);
   })
 }
 
