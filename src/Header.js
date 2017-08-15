@@ -12,7 +12,7 @@ export class Header extends PureComponent {
       <div className="HeaderWrapper">
         ReactBlogJs
         <div className="NavItem">
-          <Link to={{pathname: '/'}}>Home</Link>
+          <Link to={{pathname: '/blog'}}>Home</Link>
         </div>
       </div>
     );
