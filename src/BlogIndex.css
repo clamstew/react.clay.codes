@@ -1,0 +1,11 @@
+.BlogIndexWrapper {
+  margin: 0 auto;
+  width: 700px;
+}
+
+@media (max-width: 700px) {
+  .BlogIndexWrapper {
+    width: 90%;
+    margin: 0 5%;
+  }
+}

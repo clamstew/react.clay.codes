@@ -19,6 +19,14 @@ loader from https://loading.io/spinner/blocks/-rotating-squares-preloader-gif
 
 http://reactblogjs.com/
 
+## New initial setup
+
+## New workflow
+
+* create a new blog post with `yarn newpost` or `yarn newposts == ==tiltle="tile" --description'description'`
+* write blog post in new markdown file.
+* run `yarn yolo`
+
 ## research
 
 ## Similar ideas

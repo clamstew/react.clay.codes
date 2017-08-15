@@ -22,7 +22,7 @@ export class BlogApp extends PureComponent {
 
   componentWillMount = () => {
     getBlogConfig().then((config) => {
-        console.log('config', config);
+        // console.log('config', config);
         this.setState({config});
       });
   };

@@ -4,13 +4,14 @@ import { getBlogConfig } from './request-markdown-service';
 
 import { BlogIndexPreview } from './BlogIndexPreview'
 
+import './BlogIndex.css'
 
 export class BlogIndex extends PureComponent {
   state = { config: null };
 
   componentWillMount = () => {
     getBlogConfig().then((config) => {
-        console.log('config', config);
+        // console.log('config', config);
         this.setState({config});
       });
   };
@@ -20,7 +21,7 @@ export class BlogIndex extends PureComponent {
 
   render = () => {
     return (
-      <div>
+      <div className="BlogIndexWrapper">
         { this.hasPost() &&
           this.posts().map((p, i) => <BlogIndexPreview key={i} post={p}/> ) }
       </div>

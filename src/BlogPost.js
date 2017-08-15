@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
 import { get, formatDateTimeForDisplay } from './util'
 import { Remarkable } from './ReactRemarkable';
-
 import {
   requestMarkdownService,
   remarkableOptions,
   parseGreyMatter
 } from './request-markdown-service';
-
 import { Spinner } from './Spinner';
+
+
 
 export class BlogPost extends PureComponent {
   state = { rawMarkdown: null, greyMatter: {} }
